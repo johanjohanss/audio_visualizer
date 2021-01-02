@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Audio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toolBar" class="toolbar">
+        <input type="file" id="thefile" accept="audio/*" />
+        <!--<canvas id="canvas"></canvas>-->
+        <audio id="audio" controls></audio>
+
+        <div class="form-group">
+            <label>Kick Range</label>
+            <input type="range" id="kickRange" min="0" max="257">
+        </div>
+        <div class="form-group">
+            <label>Bar Color</label>
+            <input type="color" id="bar-color">
+        </div>
+        <div class="form-group">
+            <label>Background Color</label>
+            <input type="color" id="bg-color">
+        </div>
+        <div class="form-group">
+            <label>Gradient Background</label>
+            <div class="row-group">
+                <input type="color" id="gradient-1">
+                <input type="color" id="gradient-2">
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label>Transition Speed</label>
+            <input type="range" id="transitionRange" min="0.5" max="2">
+        </div>-->
+
+        <svg id="toolbar-x" xmlns="http://www.w3.org/2000/svg" width="3rem" fill="currentColor" class="bi bi-x"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+
+    </div>
+
+    <div class="container album-cover" id="album-cover">
+        <img src="Cyberfriends-cover.png" width="30%">
+    </div>
+
+    <div class="container">
+        <div id="barDiv"></div>
+    </div>
+
+
+
+    <script src="script.js" async defer></script>
+</body>
+
+</html>
