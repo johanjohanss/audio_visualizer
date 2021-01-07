@@ -39,6 +39,10 @@
             <input type="color" id="bar-color">
         </div>
         <div class="form-group">
+            <label>Particle Color</label>
+            <input type="color" id="particle-color">
+        </div>
+        <div class="form-group">
             <label>Background Color</label>
             <input type="color" id="bg-color">
         </div>
@@ -74,7 +78,11 @@
             <img src="vinyl.svg" class="vinyl-layout-2" width="28%">
         </div>
     </div>
-    <div class="container">
+    <div id="songinfo" class="hide-layout">
+        <p id="songtitle">Title</p>
+        <p id="songartist">Artist</p>
+    </div>
+    <div class="container" id="bardiv-container">
         <div id="barDiv"></div>
     </div>
 
@@ -96,6 +104,10 @@
                 <option value="style1">Style 1</option>
                 <option value="style2">Style 2</option>
             </select>
+        </div>
+        <div>
+            <label for="infocheck">Show Song Information</label>
+            <input type="checkbox" name="infocheck" id="infocheck">
         </div>
     </div>
 
