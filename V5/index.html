@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Audio Visualiser</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <div id="toolBar" class="toolbar">
+
+
+
+        <div class="form-group-left">
+            <label for="audio-file">Upload Audio</label>
+            <input type="file" id="audio-file" accept="audio/*" />
+        </div>
+
+        <div class="form-group-left">
+            <label for="img-file">Upload Album Cover</label>
+            <input type="file" id="img-file" accept="image/png, image/jpeg, image/svg, image/*" />
+        </div>
+
+        <!--<canvas id="canvas"></canvas>-->
+        <audio id="audio" controls></audio>
+        <div id="toolbar-right">
+            <div class="form-group">
+                <label>Kick Range</label>
+                <input type="range" id="kickRange" min="0" max="257" value="240">
+            </div>
+            <div class="form-group">
+                <label>Bar Color</label>
+                <input type="color" id="bar-color" value="#ffffff">
+            </div>
+            <div class="form-group">
+                <label>Particle Color</label>
+                <input type="color" id="particle-color" value="#FDCF2B">
+            </div>
+            <div class="form-group">
+                <label>Background Color</label>
+                <input type="color" id="bg-color">
+            </div>
+            <div class="form-group">
+                <label>Gradient Background</label>
+                <div class="row-group">
+                    <input type="color" id="gradient-1" value="#1C1B27">
+                    <input type="color" id="gradient-2" value="#121212">
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="form-group">
+            <label>Transition Speed</label>
+            <input type="range" id="transitionRange" min="0.5" max="2">
+        </div>-->
+
+        <svg id="toolbar-x" xmlns="http://www.w3.org/2000/svg" width="3rem" fill="currentColor" class="bi bi-x"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+
+    </div>
+
+    <div id="layout-1" class="layout">
+        <div class="container album-cover" id="album-cover">
+            <img src="preset_cover.jpg" id="album-upload" width="30%">
+            <div id="songinfo" class="hide-layout">
+                <p id="songtitle">TITLE</p>
+                <!--<input id="songtitle" type="text" value="TITLE">-->
+                <p id="songartist">ARTIST</p>
+            </div>
+        </div>
+    </div>
+    <div id="layout-2" class="layout hide-layout">
+        <div class="container album-cover" id="album-cover-2">
+            <img src="preset_cover.jpg" class="cover-layout-2" id="album-upload-2" width="30%">
+            <img src="vinyl.svg" class="vinyl-layout-2" width="28%">
+
+        </div>
+        <div id="songinfo-2" class="hide-layout">
+            <p id="songtitle-2">TITLE</p>
+
+            <svg id="song-dot" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-dot" viewBox="0 0 16 16">
+                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+            </svg>
+            <p id="songartist-2">ARTIST</p>
+        </div>
+    </div>
+
+    <div class="container" id="bardiv-container">
+        <div id="barDiv"></div>
+    </div>
+
+
+    <div id="controls" class="controls">
+        <div>
+            <p>M: Toggle Top Toolbar</p>
+            <p>C: Toggle Bottom Toolbar</p>
+            <p>P: Play</p>
+            <p>H: Hide Cursor</p>
+        </div>
+        <div id="layout-selector" class="form-col">
+            <label for="layout-select">Select Layout</label>
+            <select id="layout-select" name="layout-select">
+                <option value="layout1">Layout 1</option>
+                <option value="layout2">Layout 2</option>
+            </select>
+        </div>
+        <div id="band-selector" class="form-col">
+            <label for="band-select">Select Band Style</label>
+            <select id="band-select" name="band-select">
+                <option value="style1">Style 1</option>
+                <option value="style2">Style 2</option>
+            </select>
+        </div>
+        <div class="c-group">
+            <div>
+                <label for="infocheck">Show Song Information</label>
+                <input type="checkbox" name="infocheck" id="infocheck">
+            </div>
+            <div id="title-artist" class="hide-layout">
+                <div class="space-between">
+                    <label for="song-title">Title: </label>
+                    <input type="text" id="song-title" name="song-name">
+                </div>
+                <div class="space-between">
+                    <label for="artist-name">Artist: </label>
+                    <input type="text" id="artist-name" name="song-title">
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="particlecheck">Enable Particle Effects</label>
+            <input type="checkbox" name="particlecheck" id="particlecheck">
+        </div>
+    </div>
+
+    <!--<script src="Wave.js-master/src/index.js"></script>-->
+    <script src="script.js" async defer></script>
+</body>
+
+</html>

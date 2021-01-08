@@ -1,0 +1,390 @@
+$btnColor: rgb(34, 34, 34);
+
+$toolbarColor: rgb(22, 23, 26);
+$toolbarTextColor: rgb(228, 228, 228);
+
+@font-face {
+  font-family: redwing;
+  src: url(fonts/Redwing-Medium.otf);
+}
+@font-face {
+  font-family: redwing-light;
+  src: url(fonts/Redwing-Light.otf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#audio{
+  width: 25%;
+  margin: 0.45rem;
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  //border: 1px solid black;
+}
+label {
+  margin-bottom: 0.5rem;
+}
+button {
+  padding: 0.5rem;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+  background-color: rgb(27, 27, 27);
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+}
+#file-upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type="file"] {
+  padding: 0.2rem;
+  //border: 1px solid yellow;
+  //background-color: rgb(27, 27, 27);
+}
+::-webkit-file-upload-button {
+  background-color: $btnColor;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+}
+
+.album-cover {
+  //margin-top: 4rem;
+  transform: scale(1);
+  transition: all 1s ease;
+
+  position: relative;
+}
+.grow {
+  transform: scale(1.025);
+  transition: all 1s ease;
+}
+
+//Layouts
+
+//General layout class
+.layout {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.c-group{
+  display: flex;
+  flex-direction: column;
+  label{
+    margin: 0.5rem;
+  }
+}
+.space-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hide-layout {
+  display: none !important;
+}
+
+//title and artist
+#songinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 5rem;
+  color: white;
+}
+#songtitle {
+  font-size: 7rem;
+  font-family: redwing;
+  background: none;
+  border: none;
+  color: white;
+}
+#songartist {
+  font-size: 4rem;
+  font-family: redwing-light;
+}
+
+#songinfo-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 5rem;
+  color: #ffffffb6;
+}
+#songtitle-2 {
+  font-size: 3rem;
+  font-family: redwing;
+}
+#songartist-2 {
+  font-size: 3rem;
+  font-family: redwing-light;
+}
+#song-dot{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+//Individual layouts
+
+//Layout 2
+.vinyl-layout-2 {
+  position: absolute;
+  left: 52%;
+  z-index: -1;
+}
+#layout-2 {
+  position: absolute;
+  right: 10%;
+  //top: 10%;
+}
+
+.vinyl-spin {
+  animation: vinylspin 6s linear infinite;
+}
+@keyframes vinylspin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#bardiv-container {
+  position: absolute;
+  bottom: 0;
+}
+#barDiv {
+  width: 50%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+
+  height: 200px;
+  //border-bottom: 2px solid rgb(63, 63, 63);
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  //background-color: black;
+}
+
+.band {
+  background-color: rgb(24, 24, 24);
+  //height: 300px;
+  //width: 100px;
+  margin: 0.5px;
+  transition: all 0.1s ease;
+  border-radius: 0.1rem;
+}
+.band2 {
+  //background-color: rgb(31, 31, 31);
+  margin: 0px;
+  transition: all 0.1s ease;
+  //border-radius: 60%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.point {
+  width: 3px;
+  height: 3px;
+  background-color: black;
+  border-radius: 100%;
+}
+
+#toolBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.048);
+  background-color: $toolbarColor;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+  color: $toolbarTextColor;
+  //border-bottom: 1px solid yellow;
+}
+#toolbar-x:hover {
+  cursor: pointer;
+}
+.toolbar {
+  transition: all 1s ease;
+}
+.toolbarShow {
+  transition: all 1s ease;
+  transform: translateY(-120%);
+  //display: none !important;
+}
+#kickRange {
+  width: 12rem;
+  margin-left: 0.35rem;
+  margin-right: 0.35rem;
+}
+#toolbar-right{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 85%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 0.2rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  //border: 1px solid black;
+  //width: 30%;
+}
+.form-group-left{
+  justify-content: flex-start;
+  align-items: center;
+  //border: 1px solid black;
+  label{
+    margin-left: 0.4rem;
+    //border: 1px solid red;
+  }
+  input[type=file]{
+    //border: 1px solid blue;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.row-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  //padding: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  button,
+  input {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+  }
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $toolbarColor;
+  padding: 1rem;
+  color: $toolbarTextColor;
+  box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.048);
+  transition: all 1s ease;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.hide-controls {
+  transform: translateY(120%);
+  transition: all 1s ease;
+}
+
+select {
+  background-color: $btnColor;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.form-col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+//Particle effects
+
+.particle {
+  position: absolute;
+  //background-color: rgb(255, 231, 97);
+  transform: scale(1);
+  transition: all 0.5s ease;
+}
+.particle-grow {
+  transform: scale(15);
+  transition: all 0.5s ease;
+}
+
+//hide cursor
+.hidecursor{
+  cursor: none;
+}
+
+#test {
+  color: rgb(255, 252, 57);
+}
+
+.testpoint {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  background-color: rgb(255, 0, 0);
+}
+#testSVG {
+  //border: 1px solid red;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 550px;
+}
