@@ -1,9 +1,11 @@
 window.onload = function () {
-
   //DECLARING VARIABLES
   const file = document.getElementById("audio-file");
   const audio = document.getElementById("audio");
   let layouts = document.querySelectorAll(".layout");
+
+  let advX = document.getElementById("adv-x");
+  advX.addEventListener("click", showAdvancedOptions);
 
   let particlecheck = document.getElementById("particlecheck");
 
@@ -62,19 +64,23 @@ window.onload = function () {
   window.addEventListener("keydown", function (e) {
     console.log("keydown: " + e.keyCode);
 
-    if (e.keyCode === 67) {
+    if (e.keyCode === 52) {
+      //A
+      showAdvancedOptions();
+    }
+    if (e.keyCode === 51) {
       //C
       toggleControls();
     }
-    if (e.keyCode === 72) {
+    if (e.keyCode === 53) {
       //H
       toggleCursor();
     }
-    if (e.keyCode === 77) {
+    if (e.keyCode === 50) {
       //M
       toggleMenu();
     }
-    if (e.keyCode === 80) {
+    if (e.keyCode === 49) {
       //P
       startMusic();
     }
@@ -97,9 +103,7 @@ window.onload = function () {
       songinfo.classList.remove("hide-layout");
       songinfo2.classList.remove("hide-layout");
       titleArtist.classList.remove("hide-layout");
-
-    }
-    else {
+    } else {
       songinfo.classList.add("hide-layout");
       songinfo2.classList.add("hide-layout");
       titleArtist.classList.add("hide-layout");
@@ -124,6 +128,10 @@ window.onload = function () {
   let particleInput = document.getElementById("particle-color");
   particleInput.addEventListener("input", changeParticleColor);
 
+  //text color
+  let textColor = document.getElementById("text-color");
+  textColor.addEventListener("input", changeTextColor);
+
   function changeBarColor() {
     let bandClass = null;
     if (bandSelect.value == "style1") {
@@ -140,7 +148,6 @@ window.onload = function () {
       if (bandSelect.value == "style2") {
         band.querySelector("div").style.backgroundColor = barInput.value;
       }
-
     });
   }
   function changeBgColor() {
@@ -167,12 +174,9 @@ window.onload = function () {
   }
   //-------
 
-  /*let transitionRange = document.getElementById("transitionRange");
-    kickRange.addEventListener("change", updateTransLength);
-    
-    function updateTransLength() {
-    
-    }*/
+  //CHANGE EQ WIDTH
+  let rangeEQ = document.getElementById("range-eq");
+  rangeEQ.addEventListener("input", changeEQWidth);
 
   let albumCover = document.getElementById("album-cover");
 
@@ -209,7 +213,7 @@ window.onload = function () {
     src.connect(analyser);
     analyser.connect(context.destination);
 
-    analyser.fftSize = 256; //64 to give it less bands, or anything to the power of 2
+    analyser.fftSize = 128; //64 to give it less bands, or anything to the power of 2
 
     var bufferLength = analyser.frequencyBinCount;
     console.log(bufferLength);
@@ -288,8 +292,6 @@ window.onload = function () {
       //ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
-
-
         //detecting kick hits
         if (i == 1) {
           if (dataArray[i] > kickSensitivity) {
@@ -315,13 +317,12 @@ window.onload = function () {
 
         //Height
         if (i < 10) {
-          barHeight = dataArray[i] / 2.5; /// 1.5;
+          barHeight = dataArray[i] / 2.8; /// 1.5;
           bands.item(i).style.height = barHeight + "px";
         } else {
-          barHeight = dataArray[i] / 2.4; /// 1.5;
+          barHeight = dataArray[i] / 2.7; /// 1.5;
           bands.item(i).style.height = barHeight + "px";
         }
-
 
         //Setting dynamic width of bands
         if (bandSelect.value == "style2") {
@@ -439,6 +440,10 @@ window.onload = function () {
     };
 
     element.animate(keyframes, options);
+
+    setTimeout(function () {
+      element.remove();
+    }, 10000);
   }
 
   function toggleCursor() {
@@ -459,7 +464,89 @@ window.onload = function () {
     artistText2.innerText = artistName.value;
   }
 
+  //SHOW ADVANCED OPTIONS
+  function showAdvancedOptions() {
+    let advOptions = document.getElementById("adv-options");
+    advOptions.classList.toggle("hide-layout");
+  }
 
+  //CHANGE EQ WIDTH
+  function changeEQWidth() {
+    let eq = document.getElementById("barDiv");
+    eq.style.width = rangeEQ.value + "%";
+  }
 
+  //CHANGE TEXT COLOR
+  function changeTextColor() {
+    let t1 = document.getElementById("songtitle");
+    let t2 = document.getElementById("songtitle-2");
+    let a1 = document.getElementById("songartist");
+    let a2 = document.getElementById("songartist-2");
 
+    t1.style.color = textColor.value;
+    t2.style.color = textColor.value;
+    a1.style.color = textColor.value;
+    a2.style.color = textColor.value;
+  }
+
+  //KUTE JS MORPH
+  /*var tween = KUTE.fromTo(
+    "#morph1",
+    { path: "#morph1" },
+    { path: "#morph2" },
+    {
+      // options
+      delay: 500,
+      easing: "easingCubicInOut",
+      yoyo: false,
+      repeat: 0,
+      duration: 1250,
+      //complete: animComplete(),
+    }
+  ).start();
+
+  var tween = KUTE.fromTo(
+    "#morph-top-1",
+    { path: "#morph-top-1" },
+    { path: "#morph-top-2" },
+    {
+      // options
+      delay: 500,
+      easing: "easingCubicInOut",
+      yoyo: false,
+      repeat: 0,
+      duration: 1250,
+      //complete: animComplete(),
+    }
+  ).start();
+
+  var tween = KUTE.fromTo(
+    "#morph2-1",
+    { path: "#morph2-1" },
+    { path: "#morph2-2" },
+    {
+      // options
+      delay: 500,
+      easing: "easingCubicInOut",
+      yoyo: false,
+      repeat: 0,
+      duration: 1400,
+      //complete: animComplete(),
+    }
+  ).start();
+
+  var tween = KUTE.fromTo(
+    "#morph-top-2-1",
+    { path: "#morph-top-2-1" },
+    { path: "#morph-top-2-2" },
+    {
+      // options
+      delay: 500,
+      easing: "easingCubicInOut",
+      yoyo: false,
+      repeat: 0,
+      duration: 1400,
+      //complete: animComplete(),
+    }
+  ).start();*/
 };
