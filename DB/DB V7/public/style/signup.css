@@ -1,0 +1,78 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+  height: 100vh;
+  background-image: url("../../svg/logo.svg");
+  background-size: 120%;
+  background-position: 50% 50%;
+}
+
+.container-all {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(0, 0, 0, 0.274);
+}
+
+.wrapper {
+  width: 23%;
+  padding: 2rem;
+  background-color: rgba(15, 17, 22, 0.698);
+  border-radius: 0.3rem;
+}
+
+.wrapper h2 {
+  font-size: 2rem;
+}
+
+.wrapper p {
+  font-size: 1.1rem;
+}
+
+.wrapper input[type="text"],
+.wrapper input[type="password"] {
+  width: 65%;
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    width: 92%;
+  }
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 40%;
+  }
+}
+/*# sourceMappingURL=signup.css.map */
