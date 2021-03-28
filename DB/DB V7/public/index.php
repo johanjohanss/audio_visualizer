@@ -838,10 +838,10 @@
                         echo("preset_cover.jpg");
                     }
                     else{
-                        echo("../svg/wb-cover.svg");
+                        echo("svg/wb-cover.svg");
                     }  
                 }else{
-                    echo("../svg/wb-cover.svg");
+                    echo("svg/wb-cover.svg");
                 }
             ?>" id="album-upload" width="30%">
             <div id="songinfo" class="hide-layout">
@@ -857,23 +857,23 @@
                 if(isset($presetPresetName)){
                     
                     if(isset($presetLayout) && $presetLayout == "layout2"){
-                        echo("../svg/grad-cover.svg");
+                        echo("svg/grad-cover.svg");
                     }
 
                     if($presetPresetName == "Default"){
                         echo("preset_cover.jpg");
                     }
                     /*else{
-                        echo("../svg/wb-cover.svg");
+                        echo("svg/wb-cover.svg");
                     }  */
                     
 
                 }else{
-                    echo("../svg/grad-cover.svg");
+                    echo("svg/grad-cover.svg");
                 }
             ?>" class="cover-layout-2" id="album-upload-2" width="30%">
             <img src="img/vinyl-record-2.png" class="vinyl-layout-2" width="28%">
-            <img src="../svg/curve-white.svg" class="vinyl-center" width="9.68%">
+            <img src="svg/curve-white.svg" class="vinyl-center" width="9.68%">
 
         </div>
         <div id="songinfo-2" class="hide-layout">
@@ -893,7 +893,9 @@
             <img src="<?php 
                 if(isset($presetPresetName)){
 
-                    echo("../svg/wb-cover.svg");
+                    echo("svg/wb-cover.svg");
+                }else{
+                    echo("svg/wb-cover.svg");
                 }
                 
             ?>" class="cover-layout-3" id="album-upload-3" width="60%">
@@ -915,7 +917,7 @@
             <path fill-rule="evenodd"
                 d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>
-        <div class="helpDiv">
+        <div class="helpDiv" id="helpText">
             <h2>Need some help?</h2>
 
             <h3>How it works</h3>
@@ -941,7 +943,7 @@
             <p></p>
         </div>
         <div class="helpDiv">
-            <img id="helpImg" src="../svg/wb-cover.svg" width="80%">
+            <img id="helpImg" src="svg/wb-cover.svg" width="80%">
         </div>
     </div>
 
@@ -1405,7 +1407,7 @@
                         if(isset($presetFreqRange)){
                             echo($presetFreqRange);
                         }else{
-                            echo("0");
+                            echo("10");
                         }
                     ?>" 
                     id="range-freq" name="range-freq">
@@ -1632,7 +1634,7 @@
                     </select>
                     
                 </div>
-                <!--<div class="adv-group">
+                <div class="adv-group">
                     <label>Title Font Size</label>
                     <input type="range" id="titleFontSize" name="titleFontSize" min="1" max="30"  value="7">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
@@ -1647,7 +1649,7 @@
                         <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                         <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
                     </svg>
-                </div>-->
+                </div>
                 <!--<div class="adv-group">
                     <label>Color</label>
                     <input type="color">

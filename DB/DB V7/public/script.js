@@ -230,15 +230,17 @@ window.onload = function () {
   function setBGVideo() {
     let videoFile = advVideo.files;
     let src = URL.createObjectURL(videoFile[0]);
-    let bgURL = document.getElementById("bgURL");
-    bgURL.setAttribute("value", src);
+    //let bgURL = document.getElementById("bgURL");
+    //bgURL.setAttribute("value", src);
 
     let videoTag = document.querySelector("video");
     videoTag.setAttribute("src", src);
+    console.log(src);
   }
 
+
   //CHANGE FONT SIZE
-  /*let titleFontSize = document.getElementById("titleFontSize");
+  let titleFontSize = document.getElementById("titleFontSize");
   let artistFontSize = document.getElementById("artistFontSize");
   titleFontSize.addEventListener("input", changeFontSize);
   artistFontSize.addEventListener("input", changeFontSize);
@@ -246,14 +248,20 @@ window.onload = function () {
   function changeFontSize() {
     let songTitle1 = document.getElementById("songtitle");
     let songTitle2 = document.getElementById("songtitle-2");
+    let songTitle3 = document.getElementById("songtitle-3");
     let songArtist1 = document.getElementById("songartist");
     let songArtist2 = document.getElementById("songartist-2");
+    let songArtist3 = document.getElementById("songartist-3");
 
     songTitle1.style.fontSize = titleFontSize.value + "rem";
     songTitle2.style.fontSize = titleFontSize.value / 2 + "rem";
+    songTitle3.style.fontSize = titleFontSize.value / 2 + "rem";
     songArtist1.style.fontSize = artistFontSize.value + "rem";
     songArtist2.style.fontSize = titleFontSize.value / 2 + "rem";
-  }*/
+    songArtist3.style.fontSize = artistFontSize.value / 2 + "rem";
+  }
+
+
 
   //BACKGROUND COLOR OPACITY
   var bgColorOpacity = document.getElementById("bgColorOpacity");
@@ -793,6 +801,18 @@ window.onload = function () {
   function showHelp() {
     let helpSection = document.getElementById("helpSection");
     helpSection.classList.toggle("helpSectionShow");
+
+    let helpImg = document.getElementById("helpImg");
+    let helpText = document.getElementById("helpText");
+    helpImg.classList.add("helpImgAnimate");
+    helpText.querySelectorAll("h3").forEach(h3 => {
+      h3.classList.add("helpTextAnim2");
+    });
+    helpText.querySelector("h2").classList.add("helpTextAnim1");
+    helpText.querySelectorAll("p").forEach(p => {
+      p.classList.add("helpTextAnim2");
+    });
+
   }
 
   /*function switchBands() {

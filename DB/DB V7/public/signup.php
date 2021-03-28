@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "../config.php";
+require_once "config.php";
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <section class="container-all">
         <div class="wrapper">
             <!--<h2>Sign Up</h2>-->
-            <img src="../svg/signup.svg" width="65%">
+            <img src="svg/signup.svg" width="65%">
             <p class="mt-4">Create your account.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">

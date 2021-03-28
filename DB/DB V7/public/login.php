@@ -8,8 +8,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
  
+
 // Include config file
-require_once "../config.php";
+require_once "config.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -104,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
         <section class="container-all">
             <div class="wrapper">
-                <img src="../svg/login.svg" width="65%">
+                <img src="svg/login.svg" width="65%">
                 <!--<h2>Log in</h2>-->
                 <p class="mt-4">Enter your username and password</p>
 

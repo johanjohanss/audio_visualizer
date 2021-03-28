@@ -1,11 +1,11 @@
 @font-face {
   font-family: redwing;
-  src: url(../fonts/Redwing-Medium.otf);
+  src: url(fonts/Redwing-Medium.otf);
 }
 
 @font-face {
   font-family: redwing-light;
-  src: url(../fonts/Redwing-Light.otf);
+  src: url(fonts/Redwing-Light.otf);
 }
 
 * {
@@ -1335,17 +1335,13 @@ video {
 }
 
 #helpSection h2 {
-  margin-top: 2rem;
+  margin-top: 0rem;
   color: #ffff42;
   font-weight: 300;
   font-size: 3rem;
   border-bottom: 1px solid white;
   padding: 0.4rem;
   opacity: 0;
-  -webkit-animation: textIn 1s ease forwards;
-          animation: textIn 1s ease forwards;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
 }
 
 #helpSection h3 {
@@ -1353,20 +1349,26 @@ video {
   color: #f3f3f3;
   font-weight: 300;
   opacity: 0;
-  -webkit-animation: textIn 1s ease forwards;
-          animation: textIn 1s ease forwards;
-  -webkit-animation-delay: 2.2s;
-          animation-delay: 2.2s;
 }
 
 #helpSection p {
   margin-top: 0.4rem;
   opacity: 0;
+  line-height: 1.2rem;
+}
+
+.helpTextAnim1 {
   -webkit-animation: textIn 1s ease forwards;
           animation: textIn 1s ease forwards;
-  -webkit-animation-delay: 2.2s;
-          animation-delay: 2.2s;
-  line-height: 1.2rem;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+.helpTextAnim2 {
+  -webkit-animation: textIn 1s ease forwards;
+          animation: textIn 1s ease forwards;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 @-webkit-keyframes textIn {
@@ -1388,13 +1390,17 @@ video {
 }
 
 #helpImg {
+  margin-top: 5rem;
   -webkit-transform: translateX(250%) rotate(0deg);
           transform: translateX(250%) rotate(0deg);
   opacity: 0;
+}
+
+.helpImgAnimate {
   -webkit-animation: slideInLeft 1s ease forwards;
           animation: slideInLeft 1s ease forwards;
-  -webkit-animation-delay: 1.45s;
-          animation-delay: 1.45s;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 @-webkit-keyframes slideInLeft {
@@ -1434,8 +1440,8 @@ video {
 }
 
 .helpSectionShow {
-  -webkit-transform: translateY(0%) !important;
-          transform: translateY(0%) !important;
+  -webkit-transform: translateY(-1%) !important;
+          transform: translateY(-1%) !important;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
